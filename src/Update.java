@@ -9,6 +9,7 @@ public class Update {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
+
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tnp",
                     "root",
                     "satyam721");
