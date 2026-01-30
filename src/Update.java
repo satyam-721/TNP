@@ -15,14 +15,34 @@ public class Update {
                     "satyam721");
 
 
-            String sql="UPDATE Laptop SET processor=? where lid=?";
-            PreparedStatement pstm= con.prepareStatement(sql);
-
             BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
             System.out.print("Enter the Lid to change");
+            System.out.println("What do you want to update \n" +
+                    "1) Name \n" +
+                    "2) Processor \n" +
+                    "3) Price ");
+
+            String column=br.readLine();
+            String sql="UPDATE Laptop SET "+column+"=? where lid=?";
+            PreparedStatement pstm= con.prepareStatement(sql);
+            System.out.print("Enter Lid to change: ");
             pstm.setInt(2,Integer.parseInt(br.readLine()));
-            System.out.print("Enter the new processor name");
-            pstm.setString(1,br.readLine());
+
+            switch (column.toLowerCase()){
+                case "name":
+                    System.out.print("Enter the new  name");
+                    pstm.setString(1,br.readLine());
+                    break;
+                case "processor":
+                    System.out.print("Enter the new processor name");
+                    pstm.setString(1,br.readLine());
+                    break;
+                case "price":
+                    System.out.println("Enter new Price");
+                    pstm.setInt(1,Integer.parseInt(br.readLine()));
+                    break;
+            }
+
 
             int count=pstm.executeUpdate();
             System.out.println("Line Effected: "+count);
