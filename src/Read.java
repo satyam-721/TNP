@@ -17,7 +17,7 @@ public class Read {
         ResultSet rs= stmt.executeQuery(sql);
 
         //Read
-        while(rs.next()){
+        while(rs.previous()){
 
             int lid=rs.getInt(1);
             String lname=rs.getString(2);
