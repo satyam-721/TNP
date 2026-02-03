@@ -2,7 +2,6 @@ import java.sql.*;
 
 public class ResultSET_Update {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        // TODO Auto-generated method stub
 
         Class.forName("com.mysql.cj.jdbc.Driver");
 
